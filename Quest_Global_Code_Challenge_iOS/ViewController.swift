@@ -86,7 +86,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             namesFromURL.append(clearNameFromURL)
         }
         
-        
         videoLinkArray = viewModel.videoFileLinkArray
         
         let pictures = viewModel.video_pictures
