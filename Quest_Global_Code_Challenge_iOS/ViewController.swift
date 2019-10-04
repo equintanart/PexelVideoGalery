@@ -11,21 +11,8 @@ import AVFoundation
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var videoArray: [Videos] = [] {
-        didSet {
-            print("Did set")
-        }
-    }
-    
-    let tempVideoLinkArray = ["","","","","","","","","","","","","","","","","","",""]
     var videoLinkArray:[String] = []
-    
-    let tempPictureLinkArray = ["https://static-videos.pexels.com/videos/2185857/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2324293/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2906042/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/857251/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/1448735/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/1292738/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2785536/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/1851190/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/1972034/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2268807/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2364298/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/852348/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/1409899/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2219383/pictures/preview-0.jpg", "https://static-videos.pexels.com/videos/2076445/pictures/preview-0.jpg"]
-    
-    var userNameArray = ["","","","","","","","","","","","","","","","","","",""]
     var userNames: [String] = []
-    
-    let urlFromNameArray = ["","","","","","","","","","","","","","","","","","",""]
     var namesFromURL:[String] = []
     
     // The current VisibleIndexPath,
@@ -63,10 +50,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // initialized to first indexpath
         visibleIP = IndexPath.init(row: 0, section: 0)
         
-//        userNames = userNameArray
-//        namesFromURL = urlFromNameArray
-//        videoLinkArray = tempVideoLinkArray
-
     }
     
     @objc func refreshView() {
