@@ -18,34 +18,49 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-SS-hFc">
                             <rect key="frame" x="0.0" y="15" width="414" height="242"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T6T-KR-nOn">
+                                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLo-DR-ZXQ" userLabel="Dim Button">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
-                                </imageView>
+                                    <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="dimButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="6z6-lU-u7E"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg9-qf-QbM" userLabel="Controll Button">
+                                    <rect key="frame" x="174.5" y="88.5" width="65" height="65"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="65" id="9cI-JV-dyz"/>
+                                        <constraint firstAttribute="height" constant="65" id="cZ2-Ae-gNO"/>
+                                    </constraints>
+                                    <state key="normal" image="play"/>
+                                    <connections>
+                                        <action selector="controllsActionButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="QDz-SK-i4y"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.019607843137254902" green="0.62745098039215685" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="T6T-KR-nOn" firstAttribute="top" secondItem="9ob-SS-hFc" secondAttribute="top" id="IFT-aQ-4Zt"/>
-                                <constraint firstAttribute="bottom" secondItem="T6T-KR-nOn" secondAttribute="bottom" id="WhM-Ip-pne"/>
-                                <constraint firstItem="T6T-KR-nOn" firstAttribute="leading" secondItem="9ob-SS-hFc" secondAttribute="leading" id="brz-kH-N1P"/>
-                                <constraint firstAttribute="trailing" secondItem="T6T-KR-nOn" secondAttribute="trailing" id="ubC-4D-djB"/>
+                                <constraint firstItem="jLo-DR-ZXQ" firstAttribute="top" secondItem="9ob-SS-hFc" secondAttribute="top" id="03e-rp-jcT"/>
+                                <constraint firstItem="Eg9-qf-QbM" firstAttribute="centerX" secondItem="9ob-SS-hFc" secondAttribute="centerX" id="Nmr-hc-axf"/>
+                                <constraint firstAttribute="trailing" secondItem="jLo-DR-ZXQ" secondAttribute="trailing" id="VEZ-it-05P"/>
+                                <constraint firstItem="Eg9-qf-QbM" firstAttribute="centerY" secondItem="9ob-SS-hFc" secondAttribute="centerY" id="ZH3-Yn-NDn"/>
+                                <constraint firstAttribute="bottom" secondItem="jLo-DR-ZXQ" secondAttribute="bottom" id="uky-dy-5iB"/>
+                                <constraint firstItem="jLo-DR-ZXQ" firstAttribute="leading" secondItem="9ob-SS-hFc" secondAttribute="leading" id="yB6-m7-rvz"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-xe-bQP">
                             <rect key="frame" x="20" y="265" width="344" height="18"/>
-                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ab-os-IK5">
                             <rect key="frame" x="20" y="288" width="277" height="18"/>
-                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfy-VY-ru1">
-                            <rect key="frame" x="364" y="270" width="50" height="50"/>
+                            <rect key="frame" x="364" y="260" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Lf5-er-UxU"/>
                                 <constraint firstAttribute="width" constant="50" id="dYL-Wf-hyT"/>
@@ -57,7 +72,6 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpO-hx-zYD" userLabel="Duration Label">
                             <rect key="frame" x="305" y="288" width="59" height="18"/>
-                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="59" id="3Pv-gc-aBy"/>
                             </constraints>
@@ -70,6 +84,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="9ob-SS-hFc" secondAttribute="trailing" id="5YG-5C-fQu"/>
                         <constraint firstItem="9ob-SS-hFc" firstAttribute="top" secondItem="Qgn-vU-5xa" secondAttribute="top" constant="15" id="9gS-PM-Qhp"/>
+                        <constraint firstItem="Kb2-xe-bQP" firstAttribute="top" secondItem="9ob-SS-hFc" secondAttribute="bottom" constant="8" id="BC4-la-ema"/>
                         <constraint firstAttribute="trailing" secondItem="zfy-VY-ru1" secondAttribute="trailing" id="BLF-IR-JtH"/>
                         <constraint firstAttribute="bottom" secondItem="9ob-SS-hFc" secondAttribute="bottom" constant="93" id="JQQ-dx-RYd"/>
                         <constraint firstItem="9ob-SS-hFc" firstAttribute="leading" secondItem="Qgn-vU-5xa" secondAttribute="leading" id="LUO-bj-2LX"/>
@@ -80,8 +95,7 @@
                         <constraint firstItem="WpO-hx-zYD" firstAttribute="top" secondItem="Kb2-xe-bQP" secondAttribute="bottom" constant="5" id="fr2-cD-jAc"/>
                         <constraint firstItem="5Ab-os-IK5" firstAttribute="leading" secondItem="Qgn-vU-5xa" secondAttribute="leading" constant="20" id="h7g-HH-0uU"/>
                         <constraint firstItem="WpO-hx-zYD" firstAttribute="leading" secondItem="5Ab-os-IK5" secondAttribute="trailing" constant="8" id="pRU-9I-vDd"/>
-                        <constraint firstAttribute="bottom" secondItem="zfy-VY-ru1" secondAttribute="bottom" constant="30" id="sfs-nk-aSR"/>
-                        <constraint firstItem="Kb2-xe-bQP" firstAttribute="top" secondItem="T6T-KR-nOn" secondAttribute="bottom" constant="8" id="yeM-2y-mm6"/>
+                        <constraint firstAttribute="bottom" secondItem="zfy-VY-ru1" secondAttribute="bottom" constant="40" id="sfs-nk-aSR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -95,9 +109,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="authorNameLabel" destination="5Ab-os-IK5" id="h0f-Zv-FFt"/>
+                <outlet property="controllsButton" destination="Eg9-qf-QbM" id="Sfx-p3-lkA"/>
+                <outlet property="dimButton" destination="jLo-DR-ZXQ" id="wJd-JN-COB"/>
                 <outlet property="durationLabel" destination="WpO-hx-zYD" id="EMp-Co-fID"/>
                 <outlet property="fullScreenButton" destination="zfy-VY-ru1" id="7XR-uY-rMv"/>
-                <outlet property="thumbnailImageView" destination="T6T-KR-nOn" id="nhb-m1-QxQ"/>
                 <outlet property="videoNameLabel" destination="Kb2-xe-bQP" id="JUd-an-AeA"/>
                 <outlet property="videoPlayerView" destination="9ob-SS-hFc" id="2Gf-Ue-VeB"/>
             </connections>
@@ -106,5 +121,6 @@
     </objects>
     <resources>
         <image name="Full_Screen_Icon" width="512" height="512"/>
+        <image name="play" width="128" height="128"/>
     </resources>
 </document>

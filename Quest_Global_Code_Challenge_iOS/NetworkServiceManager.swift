@@ -27,12 +27,9 @@ class NetworkServiceManager {
         session = URLSession.shared
     }
     
-    func getPopularVideoData(completion: @escaping JSONDataResult) {
-        
-        print("getPopularVideoData - NetworkServiceManager Stuff")
-        
+    func getPopularVideoData(numberOfItems: Int, completion: @escaping JSONDataResult) {
 //        let urlString = "https://api.pexels.com/videos/popular?per_page5&page=1"
-        let urlString = "https://api.pexels.com/videos/search?query=cats&per_page=5&page=1"
+        let urlString = "https://api.pexels.com/videos/search?query=dogs&per_page=\(numberOfItems)&page=1"
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "GET"

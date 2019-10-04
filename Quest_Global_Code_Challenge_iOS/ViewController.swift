@@ -25,7 +25,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var videoURLs = Array<URL>()
     var firtsLoad = true
     
+    var numberOfItems = 5
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var numberOfItemsLabel: UILabel!
+    
     
     let viewModel = ViewModel()
     var videoPictureArray: [String] = []
@@ -43,15 +47,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.delegate = self
         
-        viewModel.getVideoDataFromCodable()
+        viewModel.getVideoDataFromCodable(numberOfItems: numberOfItems)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refreshView), name: NSNotification.Name(rawValue: "jsonInitData"), object: nil)
                 
         // initialized to first indexpath
         visibleIP = IndexPath.init(row: 0, section: 0)
         
+        numberOfItemsLabel.text = "0"
+        
     }
     
+    @IBAction func searchButtonAction(_ sender: Any) {
+        updateSearch()
+    }
     @objc func refreshView() {
         print("refreshView")
         
@@ -82,7 +91,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         DispatchQueue.main.async {
+            self.numberOfItemsLabel.text = String(self.viewModel.per_page)
             self.tableView.reloadData()
+        }
+    }
+    
+    func updateSearch() {
+        if numberOfItems < viewModel.total_results {
+            numberOfItems = numberOfItems + 1
+            viewModel.getVideoDataFromCodable(numberOfItems: numberOfItems)
         }
     }
 
@@ -188,18 +205,23 @@ extension ViewController {
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
         if distanceFromBottom < height {
             print(" you reached end of the table")
+//            updateSearch()
         }
         
     }
     
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndScrollingAnimation")
+    }
+    
     func playVideoOnTheCell(cell : CustomTableViewCell, indexPath : IndexPath){
-        print("playVideoOnTheCell")
-        cell.startPlayback()
+//        print("playVideoOnTheCell")
+//        cell.startPlayback()
     }
 
     func stopPlayBack(cell : CustomTableViewCell, indexPath : IndexPath){
-        print("stopPlayBack")
-        cell.stopPlayback()
+//        print("stopPlayBack")
+//        cell.stopPlayback()
     }
     
 }

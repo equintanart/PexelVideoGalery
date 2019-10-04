@@ -17,12 +17,18 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var controllsButton: UIButton!
+    @IBOutlet weak var dimButton: UIButton!
+    
+    
     var avPlayer: AVPlayer?
     var avPlayerLayer: AVPlayerLayer?
     var paused: Bool = false
     
     var videoURL: String = ""
     var pictureLink: String = ""
+    
+    var controllsAreShown = true
     
     //This will be called everytime a new value is set on the videoplayer item
     
@@ -90,5 +96,32 @@ class CustomTableViewCell: UITableViewCell {
     @IBAction func fullScreenActionButton(_ sender: Any) {
         print("Full Screen Button Action")
     }
+    @IBAction func controllsActionButton(_ sender: Any) {
+        print("Control Button Pressed")
+        
+        if self.avPlayer?.timeControlStatus == .playing {
+            stopPlayback()
+            controllsButton.setImage(UIImage(named: "play"), for: .normal)
+            
+        } else if self.avPlayer?.timeControlStatus == .paused {
+            startPlayback()
+            controllsButton.setImage(UIImage(named: "pause"), for: .normal)
+            controllsButton.isHidden = true
+            dimButton.alpha = 0.1
+            controllsAreShown = false
+        }
+    }
     
+    @IBAction func dimButtonAction(_ sender: Any) {
+        print("Dim Button Action")
+        if controllsAreShown {
+            controllsButton.isHidden = true
+            dimButton.alpha = 0.1
+            controllsAreShown = false
+        } else {
+            controllsButton.isHidden = false
+            dimButton.alpha = 0.5
+            controllsAreShown = true
+        }
+    }
 }

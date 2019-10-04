@@ -12,7 +12,7 @@ class ViewModel {
     
 //    var page: Int = 0
     var per_page: Int = 0
-//    var total_results: Int = 0
+    var total_results: Int = 0
     var url: String = ""
     var urlArray: [String] = []
     var videos: [Videos] = []
@@ -51,13 +51,15 @@ class ViewModel {
     
     let videoName: String = ""
     
-    func getVideoDataFromCodable() {
-        networkManager.getPopularVideoData(completion: {(error, data) in
+    func getVideoDataFromCodable(numberOfItems: Int) {
+        
+        networkManager.getPopularVideoData(numberOfItems: numberOfItems, completion: {(error, data) in
             if error != nil {
                 print("Error parsing the Data")
             } else {
                 
                 self.per_page = data.per_page
+                self.total_results = data.total_results
                 self.videos = data.videos
                 
                 for video in self.videos {
