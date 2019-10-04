@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
         
         viewModel.getVideoDataFromCodableWith2(completion: {(error, data) in
-        
+            //Call View Model 
             
             
         })
