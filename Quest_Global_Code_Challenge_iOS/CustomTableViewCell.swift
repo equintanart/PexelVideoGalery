@@ -94,11 +94,11 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func fullScreenActionButton(_ sender: Any) {
-        print("Full Screen Button Action")
+        print("fullScreenActionButton")
+        avPlayerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
     }
+    
     @IBAction func controllsActionButton(_ sender: Any) {
-        print("Control Button Pressed")
-        
         if self.avPlayer?.timeControlStatus == .playing {
             stopPlayback()
             controllsButton.setImage(UIImage(named: "play"), for: .normal)
@@ -113,7 +113,6 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func dimButtonAction(_ sender: Any) {
-        print("Dim Button Action")
         if controllsAreShown {
             controllsButton.isHidden = true
             dimButton.alpha = 0.1
