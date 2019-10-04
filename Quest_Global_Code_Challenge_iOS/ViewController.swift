@@ -121,7 +121,18 @@ extension ViewController {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("didEndDisplaying")
+        //        print("end = \(indexPath)")
+        if let videoCell = cell as? CustomTableViewCell {
+            videoCell.stopPlayback()
+        }
+    }
+    
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollViewDidScroll")
         let indexPaths = self.tableView.indexPathsForVisibleRows
         var cells = [Any]()
         for ip in indexPaths! {
@@ -167,25 +178,28 @@ extension ViewController {
                         if let videoCell = cells[i] as? CustomTableViewCell{
                             self.stopPlayBack(cell: videoCell, indexPath: (indexPaths?[i])!)
                         }
-                        
                     }
                 }
             }
         }
+        
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            print(" you reached end of the table")
+        }
+        
     }
     
     func playVideoOnTheCell(cell : CustomTableViewCell, indexPath : IndexPath){
+        print("playVideoOnTheCell")
         cell.startPlayback()
     }
 
     func stopPlayBack(cell : CustomTableViewCell, indexPath : IndexPath){
+        print("stopPlayBack")
         cell.stopPlayback()
     }
-
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        print("end = \(indexPath)")
-        if let videoCell = cell as? CustomTableViewCell {
-            videoCell.stopPlayback()
-        }
-    }
+    
 }
