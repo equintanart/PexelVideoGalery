@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfItemsLabel: UILabel!
+    @IBOutlet weak var searchMoreButton: UIButton!
     
     
     let viewModel = ViewModel()
@@ -36,9 +37,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("View Did Load")
-        
         // Do any additional setup after loading the view.
         
         let nib = UINib.init(nibName: "CustomTableViewCell", bundle: nil)
@@ -56,15 +54,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         numberOfItemsLabel.text = "0"
         
+        searchMoreButton.layer.cornerRadius = 5
     }
     
     @IBAction func searchButtonAction(_ sender: Any) {
         updateSearch()
     }
     @objc func refreshView() {
-        print("refreshView")
-        
-        print(viewModel.userNameArray)
         userNames = viewModel.userNameArray
         
         namesFromURL.removeAll()
@@ -82,7 +78,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let pictures = viewModel.video_pictures
         if pictures.count > 0 {
-            print("count > 0")
             for picture in pictures {
                 if picture.nr == 0 {
                     videoPictureArray.append(picture.picture)
@@ -115,10 +110,6 @@ extension ViewController {
         return 350.0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
@@ -137,91 +128,4 @@ extension ViewController {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("didEndDisplaying")
-        //        print("end = \(indexPath)")
-        if let videoCell = cell as? CustomTableViewCell {
-            videoCell.stopPlayback()
-        }
-    }
-    
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll")
-        let indexPaths = self.tableView.indexPathsForVisibleRows
-        var cells = [Any]()
-        for ip in indexPaths! {
-            if let videoCell = self.tableView.cellForRow(at: ip) as? CustomTableViewCell{
-                cells.append(videoCell)
-            }
-        }
-        let cellCount = cells.count
-        if cellCount == 0 {return}
-        if cellCount == 1 {
-            if visibleIP != indexPaths?[0] {
-                visibleIP = indexPaths?[0]
-            }
-            if let videoCell = cells.last! as? CustomTableViewCell{
-                self.playVideoOnTheCell(cell: videoCell, indexPath: (indexPaths?.last)!)
-            }
-        }
-        
-        if cellCount >= 2 {
-            for i in 0..<cellCount{
-                let cellRect = self.tableView.rectForRow(at: (indexPaths?[i])!)
-                let intersect = cellRect.intersection(self.tableView.bounds)
-//                curerntHeight is the height of the cell that
-//                is visible
-                let currentHeight = intersect.height
-//                print("\n \(currentHeight)")
-                let cellHeight = (cells[i] as AnyObject).frame.size.height
-//                0.95 here denotes how much you want the cell to display
-//                for it to mark itself as visible,
-//                .95 denotes 95 percent,
-//                you can change the values accordingly
-                if currentHeight > (cellHeight * 0.95) {
-                    if visibleIP != indexPaths?[i]{
-                        visibleIP = indexPaths?[i]
-//                        print ("visible = \(String(describing: indexPaths?[i]))")
-                        if let videoCell = cells[i] as? CustomTableViewCell{
-                            self.playVideoOnTheCell(cell: videoCell, indexPath: (indexPaths?[i])!)
-                        }
-                    }
-                } else {
-                    if aboutToBecomeInvisibleCell != indexPaths?[i].row{
-                        aboutToBecomeInvisibleCell = (indexPaths?[i].row)!
-                        if let videoCell = cells[i] as? CustomTableViewCell{
-                            self.stopPlayBack(cell: videoCell, indexPath: (indexPaths?[i])!)
-                        }
-                    }
-                }
-            }
-        }
-        
-        let height = scrollView.frame.size.height
-        let contentYoffset = scrollView.contentOffset.y
-        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        if distanceFromBottom < height {
-            print(" you reached end of the table")
-//            updateSearch()
-        }
-        
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndScrollingAnimation")
-    }
-    
-    func playVideoOnTheCell(cell : CustomTableViewCell, indexPath : IndexPath){
-//        print("playVideoOnTheCell")
-//        cell.startPlayback()
-    }
-
-    func stopPlayBack(cell : CustomTableViewCell, indexPath : IndexPath){
-//        print("stopPlayBack")
-//        cell.stopPlayback()
-    }
-    
 }

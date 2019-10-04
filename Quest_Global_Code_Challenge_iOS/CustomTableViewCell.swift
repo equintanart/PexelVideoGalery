@@ -94,7 +94,6 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func fullScreenActionButton(_ sender: Any) {
-        print("fullScreenActionButton")
         avPlayerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
     }
     

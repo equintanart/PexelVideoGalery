@@ -24,7 +24,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category: Cats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bj7-fi-XhD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category: Dogs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bj7-fi-XhD">
                                         <rect key="frame" x="0.0" y="46" width="299" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -70,14 +70,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kBT-6H-7n0"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYG-Tt-hDv" userLabel="Number">
-                                <rect key="frame" x="219.33333333333334" y="842" width="61.666666666666657" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYG-Tt-hDv" userLabel="Number">
+                                <rect key="frame" x="221" y="842" width="65" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1N7-aX-adl">
-                                <rect key="frame" x="296" y="842" width="98" height="20"/>
+                                <rect key="frame" x="296" y="832" width="98" height="30"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Search More"/>
                                 <connections>
@@ -93,28 +94,27 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="nYG-Tt-hDv" firstAttribute="top" secondItem="7Cq-QE-s5a" secondAttribute="bottom" constant="10" id="2fn-uO-D2Y"/>
                             <constraint firstItem="7Cq-QE-s5a" firstAttribute="top" secondItem="f2g-wi-HYu" secondAttribute="bottom" id="2uZ-is-sjj"/>
-                            <constraint firstItem="P9Q-xm-TU3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7iO-Yh-w6Z"/>
-                            <constraint firstItem="nYG-Tt-hDv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Aa0-7C-vUb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Cq-QE-s5a" secondAttribute="trailing" constant="20" id="Bpu-VB-Lg3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1N7-aX-adl" secondAttribute="trailing" constant="20" id="H4I-sV-2TF"/>
-                            <constraint firstItem="1N7-aX-adl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HGG-bW-aR9"/>
                             <constraint firstItem="f2g-wi-HYu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LDj-m9-rpl"/>
-                            <constraint firstItem="1N7-aX-adl" firstAttribute="top" secondItem="7Cq-QE-s5a" secondAttribute="bottom" constant="10" id="NVZ-xD-i1I"/>
-                            <constraint firstItem="nYG-Tt-hDv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P9Q-xm-TU3" secondAttribute="trailing" constant="8" symbolic="YES" id="PmS-Ix-QTf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f2g-wi-HYu" secondAttribute="trailing" constant="10" id="QgX-CS-dW6"/>
                             <constraint firstItem="7Cq-QE-s5a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WAl-eW-0fs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P9Q-xm-TU3" secondAttribute="bottom" id="fJw-LY-tvt"/>
+                            <constraint firstItem="P9Q-xm-TU3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dZz-gj-fJi"/>
                             <constraint firstItem="f2g-wi-HYu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gm9-gF-Vmq"/>
-                            <constraint firstItem="P9Q-xm-TU3" firstAttribute="top" secondItem="7Cq-QE-s5a" secondAttribute="bottom" constant="10" id="hbE-qX-JRE"/>
-                            <constraint firstItem="1N7-aX-adl" firstAttribute="leading" secondItem="nYG-Tt-hDv" secondAttribute="trailing" constant="15" id="rhL-ay-cqA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P9Q-xm-TU3" secondAttribute="bottom" id="i88-bL-9nG"/>
+                            <constraint firstItem="nYG-Tt-hDv" firstAttribute="leading" secondItem="P9Q-xm-TU3" secondAttribute="trailing" constant="10" id="k09-TT-bxF"/>
+                            <constraint firstItem="1N7-aX-adl" firstAttribute="top" secondItem="7Cq-QE-s5a" secondAttribute="bottom" id="mow-IK-uh6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1N7-aX-adl" secondAttribute="trailing" constant="20" id="qoW-C6-Kwd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nYG-Tt-hDv" secondAttribute="bottom" id="skV-al-NaU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Cq-QE-s5a" secondAttribute="bottom" constant="30" id="xDG-jg-Y17"/>
+                            <constraint firstItem="1N7-aX-adl" firstAttribute="leading" secondItem="nYG-Tt-hDv" secondAttribute="trailing" constant="10" id="xmN-Gw-3JE"/>
+                            <constraint firstItem="1N7-aX-adl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zJf-Lg-GHu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="numberOfItemsLabel" destination="nYG-Tt-hDv" id="Hzv-xA-6iB"/>
+                        <outlet property="searchMoreButton" destination="1N7-aX-adl" id="Tdc-iq-ZIy"/>
                         <outlet property="tableView" destination="7Cq-QE-s5a" id="LJG-Ch-OGc"/>
                     </connections>
                 </viewController>
