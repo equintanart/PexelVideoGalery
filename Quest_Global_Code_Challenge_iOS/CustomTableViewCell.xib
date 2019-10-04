@@ -32,14 +32,14 @@
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-xe-bQP">
                             <rect key="frame" x="20" y="265" width="344" height="18"/>
-                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ab-os-IK5">
-                            <rect key="frame" x="20" y="288" width="344" height="18"/>
-                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="20" y="288" width="277" height="18"/>
+                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,10 +55,19 @@
                                 <action selector="fullScreenActionButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="4P8-ao-riI"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpO-hx-zYD" userLabel="Duration Label">
+                            <rect key="frame" x="305" y="288" width="59" height="18"/>
+                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="59" id="3Pv-gc-aBy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="5Ab-os-IK5" secondAttribute="trailing" constant="50" id="35M-l5-a6Z"/>
                         <constraint firstAttribute="trailing" secondItem="9ob-SS-hFc" secondAttribute="trailing" id="5YG-5C-fQu"/>
                         <constraint firstItem="9ob-SS-hFc" firstAttribute="top" secondItem="Qgn-vU-5xa" secondAttribute="top" constant="15" id="9gS-PM-Qhp"/>
                         <constraint firstAttribute="trailing" secondItem="zfy-VY-ru1" secondAttribute="trailing" id="BLF-IR-JtH"/>
@@ -67,7 +76,10 @@
                         <constraint firstAttribute="trailing" secondItem="Kb2-xe-bQP" secondAttribute="trailing" constant="50" id="XId-Yc-Mmp"/>
                         <constraint firstItem="5Ab-os-IK5" firstAttribute="top" secondItem="Kb2-xe-bQP" secondAttribute="bottom" constant="5" id="Y2t-u6-jh3"/>
                         <constraint firstItem="Kb2-xe-bQP" firstAttribute="leading" secondItem="Qgn-vU-5xa" secondAttribute="leading" constant="20" id="ZBU-bT-ZCZ"/>
+                        <constraint firstItem="WpO-hx-zYD" firstAttribute="trailing" secondItem="Kb2-xe-bQP" secondAttribute="trailing" id="aXu-MF-dnb"/>
+                        <constraint firstItem="WpO-hx-zYD" firstAttribute="top" secondItem="Kb2-xe-bQP" secondAttribute="bottom" constant="5" id="fr2-cD-jAc"/>
                         <constraint firstItem="5Ab-os-IK5" firstAttribute="leading" secondItem="Qgn-vU-5xa" secondAttribute="leading" constant="20" id="h7g-HH-0uU"/>
+                        <constraint firstItem="WpO-hx-zYD" firstAttribute="leading" secondItem="5Ab-os-IK5" secondAttribute="trailing" constant="8" id="pRU-9I-vDd"/>
                         <constraint firstAttribute="bottom" secondItem="zfy-VY-ru1" secondAttribute="bottom" constant="30" id="sfs-nk-aSR"/>
                         <constraint firstItem="Kb2-xe-bQP" firstAttribute="top" secondItem="T6T-KR-nOn" secondAttribute="bottom" constant="8" id="yeM-2y-mm6"/>
                     </constraints>
@@ -83,6 +95,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="authorNameLabel" destination="5Ab-os-IK5" id="h0f-Zv-FFt"/>
+                <outlet property="durationLabel" destination="WpO-hx-zYD" id="EMp-Co-fID"/>
                 <outlet property="fullScreenButton" destination="zfy-VY-ru1" id="7XR-uY-rMv"/>
                 <outlet property="thumbnailImageView" destination="T6T-KR-nOn" id="nhb-m1-QxQ"/>
                 <outlet property="videoNameLabel" destination="Kb2-xe-bQP" id="JUd-an-AeA"/>

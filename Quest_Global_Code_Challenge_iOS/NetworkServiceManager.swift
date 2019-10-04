@@ -27,32 +27,31 @@ class NetworkServiceManager {
         session = URLSession.shared
     }
     
-    //func getMobileInitializeDataWithCompletion(completion: @escaping JSONDataResult) {
     func getPopularVideoData(completion: @escaping JSONDataResult) {
         
-        print("getPopularVideoData - NetworkServiceManager")
+        print("getPopularVideoData - NetworkServiceManager Stuff")
         
-        let urlString = "https://api.pexels.com/videos/popular?per_page=15&page=1"
+//        let urlString = "https://api.pexels.com/videos/popular?per_page5&page=1"
+        let urlString = "https://api.pexels.com/videos/search?query=cats&per_page=5&page=1"
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "GET"
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         request.addValue("563492ad6f9170000100000132237431be6246d7ba3a4b2ca870edf1", forHTTPHeaderField: "Authorization")
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             if error != nil{
+                print("error")
                 return
             }
             
             guard let data = data else { return }
             do {
-                
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .secondsSince1970
                 decoder.keyDecodingStrategy = .useDefaultKeys
                 
                 let videoData = try decoder.decode(VideoDataCodable.self, from: data)
-                                
-                print("videoData")
                 completion(nil, videoData)
                 
             } catch let err {

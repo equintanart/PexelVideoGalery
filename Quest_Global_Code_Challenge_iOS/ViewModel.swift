@@ -8,13 +8,13 @@
 
 import Foundation
 
-
 class ViewModel {
     
 //    var page: Int = 0
-//    var per_page: Int = 0
+    var per_page: Int = 0
 //    var total_results: Int = 0
-//    var url: String = ""
+    var url: String = ""
+    var urlArray: [String] = []
     var videos: [Videos] = []
 //
 //    var id: Int = 0
@@ -24,12 +24,14 @@ class ViewModel {
     var imageURL: String = ""
 //    var full_res: String = ""
 //    var duration: Int = 0
-//    var user: User
+    var durationString: String = ""
+    var durationArray: [String] = []
     var video_files: [VideoFiles] = []
     var video_pictures: [VideoPictures] = []
 //
 //    var userId: Int = 0
     var userName: String = ""
+    var userNameArray: [String] = []
 //    var userURL: String = ""
 //
 //    var videoFilesId: Int = 0
@@ -37,7 +39,8 @@ class ViewModel {
 //    var videoFilesFileType: String = ""
 //    var videoFilesWidth: Int = 0
 //    var videoFilesHeight: Int = 0
-    var videoFilesLink: String = ""
+    
+    var videoFileLinkArray: [String] = []
 //
 //    var videoPicturesId: Int = 0
     var videoPicturesPictureURL: String = ""
@@ -48,72 +51,49 @@ class ViewModel {
     
     let videoName: String = ""
     
-    func getVideoDataFromCodableWith2(completion: @escaping ([Videos], Error?)-> Void) {
-        networkManager.getPopularVideoData(completion: {(error, data) in
-            if error != nil {
-                print("Error parsing the Data - View Model")
-            } else {
-                self.videos = data.videos
-                completion(self.videos,nil)
-            }
-        })
-    }
-    
-    func getVideoDataFromCodableWith(completion: @escaping (Array< Videos >?,Error?)-> Void) {
-        networkManager.getPopularVideoData(completion: {(error, data) in
-            if error != nil {
-                print("Error parsing the Data - View Model")
-            } else {
-                self.videos = data.videos
-                completion(self.videos,nil)
-            }
-        })
-    }
-    
     func getVideoDataFromCodable() {
-        
-        print("getVideoDataFromCodable - View Model")
-        
         networkManager.getPopularVideoData(completion: {(error, data) in
             if error != nil {
                 print("Error parsing the Data")
             } else {
                 
+                self.per_page = data.per_page
                 self.videos = data.videos
                 
-                print("Videos Count")
-                print(self.videos.count)
-                
                 for video in self.videos {
+                
+                    self.userNameArray.append(video.user.name)
+                    self.urlArray.append(video.url)
                     
-                    self.videoURL = video.url
-                    print("self.videoURL")
-                    print(self.videoURL)
+                    let duration = self.getFormattedVideoTime(totalVideoDuration: video.duration)
+                    if duration.hour != 0 {
+                        self.durationString = String(duration.hour) + ":" + String(duration.minute) + ":" + String(duration.seconds)
+                    } else if duration.minute != 0 {
+                        self.durationString = String(duration.minute) + ":" + String(duration.seconds)
+                    } else {
+                        self.durationString = "0:" + String(duration.seconds)
+                    }
+                    self.durationArray.append(self.durationString)
                     
-                    let videoFiles = video.video_files
-                    for videoFile in videoFiles {
+                    let video_files = video.video_files
+                    for videoFile in video_files {
                         if videoFile.quality == "sd" {
-                            print(videoFile.link)
+                            self.videoFileLinkArray.append(videoFile.link)
+                            break
                         }
                     }
-                    
-                    let videoPictures = video.video_pictures
-                    for videoPicture in videoPictures {
-                        if videoPicture.nr == 0 {
-                            print(videoPicture.picture)
-                        }
-                    }
-                    
-                    self.userName = video.user.name
-                    print("self.userName")
-                    print(self.userName)
                 }
-                
-                
-                
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "jsonInitData"), object: self)
             }
         })
     }
+    
+    private func getFormattedVideoTime(totalVideoDuration: Int) -> (hour: Int, minute: Int, seconds: Int){
+        let seconds = totalVideoDuration % 60
+        let minutes = (totalVideoDuration / 60) % 60
+        let hours   = totalVideoDuration / 3600
+        return (hours,minutes,seconds)
+    }
+
     
 }

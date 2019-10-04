@@ -16,7 +16,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var videoNameLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    
+    @IBOutlet weak var durationLabel: UILabel!
     var avPlayer: AVPlayer?
     var avPlayerLayer: AVPlayerLayer?
     var paused: Bool = false
