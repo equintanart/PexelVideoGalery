@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0931F07C23459C58001550D8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0931F07B23459C58001550D8 /* CustomTableViewCell.xib */; };
+		0931F07E2345B246001550D8 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931F07D2345B246001550D8 /* NetworkServiceManager.swift */; };
+		0931F0822345B701001550D8 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931F0812345B701001550D8 /* CodableData.swift */; };
+		0931F0842345BCC2001550D8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931F0832345BCC2001550D8 /* ViewModel.swift */; };
+		09BF1FC62345672000876823 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF1FC52345672000876823 /* CustomTableViewCell.swift */; };
 		09D95F2E234536C7007A7E5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D95F2D234536C7007A7E5A /* AppDelegate.swift */; };
 		09D95F30234536C7007A7E5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D95F2F234536C7007A7E5A /* SceneDelegate.swift */; };
 		09D95F32234536C7007A7E5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D95F31234536C7007A7E5A /* ViewController.swift */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0931F07B23459C58001550D8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		0931F07D2345B246001550D8 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
+		0931F0812345B701001550D8 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
+		0931F0832345BCC2001550D8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		09BF1FC52345672000876823 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		09D95F2A234536C7007A7E5A /* Quest_Global_Code_Challenge_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quest_Global_Code_Challenge_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D95F2D234536C7007A7E5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D95F2F234536C7007A7E5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,10 +112,15 @@
 				09D95F2D234536C7007A7E5A /* AppDelegate.swift */,
 				09D95F2F234536C7007A7E5A /* SceneDelegate.swift */,
 				09D95F31234536C7007A7E5A /* ViewController.swift */,
+				09BF1FC52345672000876823 /* CustomTableViewCell.swift */,
+				0931F07B23459C58001550D8 /* CustomTableViewCell.xib */,
 				09D95F33234536C8007A7E5A /* Main.storyboard */,
 				09D95F36234536D1007A7E5A /* Assets.xcassets */,
 				09D95F38234536D1007A7E5A /* LaunchScreen.storyboard */,
 				09D95F3B234536D1007A7E5A /* Info.plist */,
+				0931F07D2345B246001550D8 /* NetworkServiceManager.swift */,
+				0931F0812345B701001550D8 /* CodableData.swift */,
+				0931F0832345BCC2001550D8 /* ViewModel.swift */,
 			);
 			path = Quest_Global_Code_Challenge_iOS;
 			sourceTree = "<group>";
@@ -235,6 +250,7 @@
 				09D95F3A234536D1007A7E5A /* LaunchScreen.storyboard in Resources */,
 				09D95F37234536D1007A7E5A /* Assets.xcassets in Resources */,
 				09D95F35234536C8007A7E5A /* Main.storyboard in Resources */,
+				0931F07C23459C58001550D8 /* CustomTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D95F32234536C7007A7E5A /* ViewController.swift in Sources */,
+				0931F07E2345B246001550D8 /* NetworkServiceManager.swift in Sources */,
 				09D95F2E234536C7007A7E5A /* AppDelegate.swift in Sources */,
+				0931F0822345B701001550D8 /* CodableData.swift in Sources */,
+				09BF1FC62345672000876823 /* CustomTableViewCell.swift in Sources */,
 				09D95F30234536C7007A7E5A /* SceneDelegate.swift in Sources */,
+				0931F0842345BCC2001550D8 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
